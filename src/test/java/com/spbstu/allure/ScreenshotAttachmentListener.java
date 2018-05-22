@@ -20,4 +20,9 @@ public class ScreenshotAttachmentListener extends TestListenerAdapter {
     public void onTestFailure(ITestResult res) {
         byte[] inf = makeScreenshot();
     }
+
+    @Override
+    public void onTestSkipped(ITestResult iTestResult) {
+        byte[] inf = makeScreenshot();
+    }
 }
