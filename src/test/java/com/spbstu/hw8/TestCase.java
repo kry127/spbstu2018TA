@@ -2,20 +2,25 @@ package com.spbstu.hw8;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.spbstu.allure.ScreenshotAttachmentListener;
 import com.spbstu.hw8.entities.MetalAndColorEntity;
 import com.spbstu.hw8.entities.User;
 import com.spbstu.hw8.entities.UserFactory;
 import io.github.sskorol.core.DataSupplier;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Features;
+import ru.yandex.qatools.allure.annotations.Stories;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
+@Listeners(ScreenshotAttachmentListener.class)
+@Features({"Home Work 8 Test Suite"})
+@Stories({"Metals and colors tests"})
 public class TestCase extends BaseJDITest {
 
     @DataSupplier

@@ -1,23 +1,18 @@
 package com.spbstu.hw8;
 
-import com.epam.jdi.uitests.core.logger.JDILogger;
 import com.epam.jdi.uitests.core.settings.JDISettings;
-import com.epam.jdi.uitests.web.selenium.driver.SeleniumDriverFactory;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.settings.WebSettings;
-import com.spbstu.allure.ScreenshotAttachmentListener;
 import com.spbstu.utils.PropertyLoader;
 import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.MarkerFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 
 
-@Listeners(ScreenshotAttachmentListener.class)
 public class BaseJDITest {
 
     public static final String TEST_INFO = "TEST_INFO";
