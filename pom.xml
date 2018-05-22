@@ -151,6 +151,16 @@
                 <test.user.displayName>PITER CHAILOVSKII</test.user.displayName>
             </properties>
         </profile>
+        <profile>
+            <id>hw8</id>
+            <properties>
+                <test.runner>jdi-runner.xml</test.runner>
+                <test.user.name>epam</test.user.name>
+                <test.user.password>1234</test.user.password>
+                <test.user.displayName>PITER CHAILOVSKII</test.user.displayName>
+            </properties>
+        </profile>
+
     </profiles>
 
     <dependencies>
@@ -204,6 +214,13 @@
             <groupId>com.epam.jdi</groupId>
             <artifactId>jdi-uitest-web</artifactId>
             <version>${jdi.version}</version>
+        </dependency>
+
+        <!-- for good data provider https://github.com/sskorol/test-data-supplier -->
+        <dependency>
+            <groupId>io.github.sskorol</groupId>
+            <artifactId>test-data-supplier</artifactId>
+            <version>1.5.5</version>
         </dependency>
     </dependencies>
 
