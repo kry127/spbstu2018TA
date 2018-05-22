@@ -38,6 +38,7 @@ public class TestCase extends BaseJDITest {
         JDIWebSite.checkUserLoggedIn(piter); // проверяем, что после логина отображается соответствующее имя
         JDIWebSite.openMetalAndColors(); // открываем страницу металов и расцветок (с помощью меню!)
         JDIWebSite.metalAndColors.checkOpened(); // а уже с помощью Page Object проверяем, что всё открылось :)
-        JDIWebSite.metalAndColors.inputData(entity);
+        JDIWebSite.metalAndColors.inputData(entity); // осуществляем заполнение данных из Data Provider
+        JDIWebSite.metalAndColors.checkDataInput(entity); // осуществляем проверку заполненных данных
     }
 }

@@ -13,6 +13,7 @@ import com.spbstu.hw8.pages.HomePage;
 import com.spbstu.hw8.pages.LoginForm;
 import com.spbstu.hw8.pages.MetalAndColorsPage;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 @JSite("https://jdi-framework.github.io/")
 public class JDIWebSite extends WebSite {
@@ -33,6 +34,7 @@ public class JDIWebSite extends WebSite {
     @FindBy(css = ".dropdown-menu-login")
     public static Form<?> dropdownMenuLogin;
 
+    @Step
     public static void logout() {
         if (!logoutButton.isDisplayed()) {
             profilePhoto.click();
@@ -42,17 +44,20 @@ public class JDIWebSite extends WebSite {
         }
     }
 
+    @Step("Login")
     public static void login(User user) {
         if (!dropdownMenuLogin.isDisplayed())
             profilePhoto.click();
         loginForm.loginAs(user);
     }
 
+    @Step("Check user has logged in")
     public static void checkUserLoggedIn(User user) {
         //profilePhoto.shouldHave(text(user.displayName)); //selenide style
         Assert.areEquals(profilePhoto.getText(), user.displayName); // jdi
     }
 
+    @Step("Open Metal And Colors page")
     public static void openMetalAndColors() {
         headerMenu.clickOn(HeaderMenu.METALS_N_COLORS);
     }
