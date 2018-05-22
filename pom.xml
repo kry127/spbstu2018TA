@@ -143,7 +143,7 @@
             </properties>
         </profile>
         <profile>
-            <id>home_work_4_runner</id>
+            <id>hw4</id>
             <properties>
                 <test.runner>homework-4-runner.xml</test.runner>
                 <test.user.name>epam</test.user.name>
