@@ -25,7 +25,7 @@ public class ScreenshotAttachmentListener extends TestListenerAdapter {
     @Override
     public void onTestFailure(ITestResult res) {
         byte[] inf = makeScreenshot();
-        JDISettings.driverFactory.getDriver()   }
+    }
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
