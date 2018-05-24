@@ -16,6 +16,7 @@
         <jdi.version>1.1.0</jdi.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <test.runner>simple-runner-selenium.xml</test.runner>
+        <driver.selenoid.hub>http://localhost:4444/wd/hub</driver.selenoid.hub>
     </properties>
 
     <build>

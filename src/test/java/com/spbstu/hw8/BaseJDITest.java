@@ -4,11 +4,17 @@ import com.epam.jdi.uitests.core.settings.JDISettings;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.settings.WebSettings;
 import com.spbstu.utils.PropertyLoader;
+import com.sun.jndi.toolkit.url.Uri;
 import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.MarkerFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
+import java.net.URL;
+import java.util.function.Supplier;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 
@@ -27,7 +33,16 @@ public class BaseJDITest {
         WebSettings.init();
 
         // указываем JDI путь до cromedriver.exe (ну, или другой драйвер, который может использоваться)
-        JDISettings.driverFactory.setDriverPath(PropertyLoader.get("driver.path"));
+        final URL url = new URL(PropertyLoader.get("driver.selenoid.hub"));
+        WebSettings.useDriver(() -> {
+            RemoteWebDriver wd = new RemoteWebDriver(url, DesiredCapabilities.chrome());
+            return wd;
+        });
+
+
+
+        //JDISettings.driverFactory.setDriverPath(PropertyLoader.get("driver.path"));
+        //driver = (WebDriver)JDISettings.driverFactory.getDriver("http://localhost:4444/wd/hub");
 
         // дальше как в примере с github
         WebSite.init(JDIWebSite.class); // инициализируем сайт целиком (PageObjects JDI проинициализирует сам рекурс.)

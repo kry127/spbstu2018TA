@@ -23,7 +23,7 @@ import java.util.stream.Stream;
 @Stories({"Metals and colors tests"})
 public class TestCase extends BaseJDITest {
 
-    @DataSupplier
+    @DataSupplier(runInParallel = true)
     public Stream<MetalAndColorEntity> metalsColorsDatasetProvider() {
         Gson g = new Gson();
         InputStream stream = Gson.class.getClassLoader().getResourceAsStream("metalscolorsdataset.json");
@@ -33,7 +33,7 @@ public class TestCase extends BaseJDITest {
         return entities.values().stream();
     }
 
-    @Test(dataProvider = "metalsColorsDatasetProvider")
+    @Test(dataProvider = "metalsColorsDatasetProvider", threadPoolSize = 5)
     public void loginExample(MetalAndColorEntity entity) {
         JDIWebSite.homePage.open(); // открываем стандартную тестовую страницу
         User piter = UserFactory.getProfileUser(); // создаём сущность пользователя (по умолчанию Питер Чайловский)
