@@ -40,6 +40,7 @@ public class TestCase1 extends BaseSelenideTest {
     public void beforeTest() {
         final URL url = new URL(PropertyLoader.get("driver.selenoid.hub"));
         RemoteWebDriver wd = new RemoteWebDriver(url, DesiredCapabilities.chrome());
+        wd.manage().window().maximize();
         WebDriverRunner.setWebDriver(wd);
 
         HomeWork4Site.init();
