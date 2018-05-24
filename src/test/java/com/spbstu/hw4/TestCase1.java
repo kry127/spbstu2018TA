@@ -38,11 +38,11 @@ public class TestCase1 extends BaseSelenideTest {
     @BeforeTest
     @SneakyThrows
     public void beforeTest() {
-        HomeWork4Site.init();
-
         final URL url = new URL(PropertyLoader.get("driver.selenoid.hub"));
         RemoteWebDriver wd = new RemoteWebDriver(url, DesiredCapabilities.chrome());
         WebDriverRunner.setWebDriver(wd);
+
+        HomeWork4Site.init();
     }
 
     /**
