@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="HomeWork4" parallel="tests" thread-count="2" verbose="2">
+<suite name="HomeWork4" verbose="2">
     <!--
     Убранные атрибуты из тега suite:
      parallel="tests" thread-count="2"
