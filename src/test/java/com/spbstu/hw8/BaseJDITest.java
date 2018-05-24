@@ -4,7 +4,6 @@ import com.epam.jdi.uitests.core.settings.JDISettings;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.settings.WebSettings;
 import com.spbstu.utils.PropertyLoader;
-import com.sun.jndi.toolkit.url.Uri;
 import lombok.SneakyThrows;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -14,7 +13,6 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import java.net.URL;
-import java.util.function.Supplier;
 
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 
@@ -22,7 +20,7 @@ import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 public class BaseJDITest {
 
     public static final String TEST_INFO = "TEST_INFO";
-    //WebDriver driver;
+    WebDriver driver;
 
     @BeforeSuite(alwaysRun = true)
     @SneakyThrows
