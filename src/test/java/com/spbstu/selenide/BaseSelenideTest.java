@@ -14,7 +14,6 @@ import java.net.URL;
 public class BaseSelenideTest {
 
     @BeforeSuite
-    @SneakyThrows
     public void beforeSuite() {
         Configuration.browser = "CHROME";
         Configuration.startMaximized = true;
@@ -23,10 +22,6 @@ public class BaseSelenideTest {
         Configuration.collectionsPollingInterval = 300;
 
         Configuration.reportsFolder = "build/reports/tests"; // в неё складываются скриншоты
-
-        final URL url = new URL(PropertyLoader.get("driver.selenoid.hub"));
-        RemoteWebDriver wd = new RemoteWebDriver(url, DesiredCapabilities.chrome());
-        WebDriverRunner.setWebDriver(wd);
 
     }
 }

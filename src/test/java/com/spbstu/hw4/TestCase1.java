@@ -1,17 +1,23 @@
 package com.spbstu.hw4;
 
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import com.spbstu.allure.ScreenshotAttachmentListener;
 import com.spbstu.hw4.utils.Color;
 import com.spbstu.hw4.utils.Element;
 import com.spbstu.hw4.utils.Metal;
 import com.spbstu.selenide.BaseSelenideTest;
+import com.spbstu.utils.PropertyLoader;
+import lombok.SneakyThrows;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 
+import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,8 +36,13 @@ public class TestCase1 extends BaseSelenideTest {
     private static final String TEST_SITE_HOMEPAGE = "test.site.homepage";
 
     @BeforeTest
+    @SneakyThrows
     public void beforeTest() {
         HomeWork4Site.init();
+
+        final URL url = new URL(PropertyLoader.get("driver.selenoid.hub"));
+        RemoteWebDriver wd = new RemoteWebDriver(url, DesiredCapabilities.chrome());
+        WebDriverRunner.setWebDriver(wd);
     }
 
     /**
