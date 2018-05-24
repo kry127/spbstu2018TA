@@ -9,8 +9,10 @@ import com.spbstu.hw4.utils.Metal;
 import com.spbstu.selenide.BaseSelenideTest;
 import com.spbstu.utils.PropertyLoader;
 import lombok.SneakyThrows;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -35,17 +37,11 @@ public class TestCase1 extends BaseSelenideTest {
     private static final List<String> SUBMENU_ITEMS = Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Table with pages", "Different elements");
     private static final String TEST_SITE_HOMEPAGE = "test.site.homepage";
 
-    @BeforeTest
+    @BeforeClass
     @SneakyThrows
-    public void beforeTest() {
-        final URL url = new URL(PropertyLoader.get("driver.selenoid.hub"));
-        RemoteWebDriver wd = new RemoteWebDriver(url, DesiredCapabilities.chrome());
-        wd.manage().window().maximize();
-        WebDriverRunner.setWebDriver(wd);
-
+    public void beforeClass() {
         HomeWork4Site.init();
     }
-
     /**
      * Данный тест можно запустить следующими maven командами:
      * mvn clean package -Phome_work_4_runner

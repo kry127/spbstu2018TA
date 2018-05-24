@@ -1,6 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="HomeWork4" parallel="tests" thread-count="2" verbose="1">
+<suite name="HomeWork4" parallel="tests" thread-count="2" verbose="2">
+    <!--
+    Убранные атрибуты из тега suite:
+     parallel="tests" thread-count="2"
+    -->
+
     <test name="test case 1">
         <classes>
             <class name="com.spbstu.hw4.TestCase1"/>

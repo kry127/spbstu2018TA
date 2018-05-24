@@ -15,7 +15,8 @@ public class BaseSelenideTest {
 
     @BeforeSuite
     public void beforeSuite() {
-        Configuration.browser = "CHROME";
+        Configuration.browser = "com.spbstu.selenide.CustomWebDriverProvider";
+        Configuration.browserCapabilities = DesiredCapabilities.chrome();
         Configuration.startMaximized = true;
         Configuration.timeout = 4000;
         Configuration.pollingInterval = 100; // "-Dselenide.pollingInterval=50"

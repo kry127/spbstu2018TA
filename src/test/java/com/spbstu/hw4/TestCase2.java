@@ -1,12 +1,14 @@
 package com.spbstu.hw4;
 
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.webdriver.WebDriverFactory;
 import com.spbstu.allure.ScreenshotAttachmentListener;
 import com.spbstu.selenide.BaseSelenideTest;
 import com.spbstu.utils.PropertyLoader;
 import lombok.SneakyThrows;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -30,15 +32,16 @@ public class TestCase2 extends BaseSelenideTest {
     private static final String TEST_USER_DISPLAY_NAME = "test.user.displayName";
     private static final String TEST_SITE_HOMEPAGE = "test.site.homepage";
 
-    @BeforeTest
-    @SneakyThrows
-    public void beforeTest() {
-        final URL url = new URL(PropertyLoader.get("driver.selenoid.hub"));
-        RemoteWebDriver wd = new RemoteWebDriver(url, DesiredCapabilities.chrome());
-        wd.manage().window().maximize();
-        WebDriverRunner.setWebDriver(wd);
 
+    @BeforeClass
+    @SneakyThrows
+    public void beforeClass() {
         HomeWork4Site.init();
+    }
+
+    @BeforeTest
+    public void beforeTest() {
+        //HomeWork4Site.init();
     }
 
     /**
