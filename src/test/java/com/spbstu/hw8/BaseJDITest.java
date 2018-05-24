@@ -22,7 +22,7 @@ import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 public class BaseJDITest {
 
     public static final String TEST_INFO = "TEST_INFO";
-    WebDriver driver;
+    //WebDriver driver;
 
     @BeforeSuite(alwaysRun = true)
     @SneakyThrows
@@ -53,6 +53,5 @@ public class BaseJDITest {
     @AfterSuite(alwaysRun = true)
     public void tearDown() {
         logger.info(MarkerFactory.getMarker(TEST_INFO), "Tear down tests");
-        WebSettings.getDriver().close(); // необходимо закрывать браузер после проведения тестов
-    }
+        /*WebSettings.getDriver().close(); // необходимо закрывать браузер после проведения тестов*/}
 }
