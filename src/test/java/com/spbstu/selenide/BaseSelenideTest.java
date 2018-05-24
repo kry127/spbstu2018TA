@@ -1,11 +1,20 @@
 package com.spbstu.selenide;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.impl.WebDriverThreadLocalContainer;
+import com.spbstu.utils.PropertyLoader;
+import lombok.SneakyThrows;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.BeforeSuite;
+
+import java.net.URL;
 
 public class BaseSelenideTest {
 
     @BeforeSuite
+    @SneakyThrows
     public void beforeSuite() {
         Configuration.browser = "CHROME";
         Configuration.startMaximized = true;
@@ -15,6 +24,9 @@ public class BaseSelenideTest {
 
         Configuration.reportsFolder = "build/reports/tests"; // в неё складываются скриншоты
 
+        final URL url = new URL(PropertyLoader.get("driver.selenoid.hub"));
+        RemoteWebDriver wd = new RemoteWebDriver(url, DesiredCapabilities.chrome());
+        WebDriverRunner.setWebDriver(wd);
 
     }
 }

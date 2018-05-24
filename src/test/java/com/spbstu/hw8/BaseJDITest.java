@@ -53,6 +53,6 @@ public class BaseJDITest {
     @AfterSuite(alwaysRun = true)
     public void tearDown() {
         logger.info(MarkerFactory.getMarker(TEST_INFO), "Tear down tests");
-        driver.close(); // необходимо закрывать браузер после проведения тестов
+        WebSettings.getDriver().close(); // необходимо закрывать браузер после проведения тестов
     }
 }
